@@ -1,7 +1,23 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Items from './pages/Items';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import Payment from './pages/Payment';
 
 export default function App() {
   return (
-    <h1 className='text-red-500'>App</h1>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Items />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/payment' element={<Payment />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
+
+
+
+
+
