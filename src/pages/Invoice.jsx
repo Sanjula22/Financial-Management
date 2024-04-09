@@ -27,8 +27,8 @@ const handleDelete = (id) => {
           <form className='flex flex-col gap-5 bg-blue-100 p-8 mb-4 rounded-lg w-full md:w-1/2'>
             <div className='flex flex-col gap-3'>
         <div className='d-flex justify-content-between mb-2'>
-            <h3>All Payments</h3>
-            <Link to="/payment" className="btn btn-primary bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">+ Add Payments</Link>
+            <h3 className='text-2xl text-center font-semibold my-0 p-0 mb-0'>All Payments</h3>
+           
         </div>
         <table className="table">
             <thead>
@@ -69,7 +69,9 @@ const handleDelete = (id) => {
             >
             Back to Home
           </a>
+          
         </div>
+        <Link to="/payment" className="btn btn-primary bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Add Payments</Link>
             </tbody>
         </table>
         </div>
