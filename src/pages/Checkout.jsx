@@ -1,111 +1,114 @@
 import React, { useState } from "react";
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function Checkout() {
-  const [fName, setFName] = useState()
-  const [lName, setLName] = useState()
-  const [nic, setNIC] = useState()
-  const [phone, setPhone] = useState()
-  const [email, setEmail] = useState()
+  const [fName, setFName] = useState('');
+  const [lName, setLName] = useState('');
+  const [nic, setNIC] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
 
-  const Submit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3003/checkout/createCheckout", {fName,lName, nic, phone, email})
-    .then(result => console.log(result))
-    .catch(err => console.log(err))
-  }
-  return (
-    <div className='min-h-screen flex items-center justify-center bg-gray-0'>
-      <div className='max-w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto'>
-        {/* <h1 className='text-3xl text-center font-semibold my-7 bg-blue-300 p-8 mb-4 rounded-lg'>Checkout</h1> */}
-        <div className='flex flex-col md:flex-row gap-5 items-start justify-center'>
-          
-          <form onSubmit={Submit} className='flex flex-col gap-5 bg-blue-100 p-8 mb-4 rounded-lg w-full md:w-1/2'>
-            <div className='flex flex-col gap-3'>
-            <h1 className='text-2xl text-center font-semibold my-0 p-0 mb-0'>Purchase Details</h1>
+    axios.post("http://localhost:3003/checkout/createCheckout", { fName, lName, nic, phone, email })
+      .then(result => console.log(result))
+      .catch(err => console.log(err));
+  };
 
-              <div className='flex gap-3 items-center'>
-                <label htmlFor='firstname' className=''>First_Name:</label>
-                <input type='text' placeholder='Enter your first name' className='border p-2 rounded-lg ' id='firstname' name='firstname' 
-                onChange={(e) => setFName(e.target.value)}
-                // value={fName}
-                />
+  return (
+    <div className="bg-cover bg-no-repeat bg-center w-full h-full" style={{backgroundImage: "url(/Lambogini.jpg)"}}>
+      <h1 className="text-4xl p-4">
+        <span className="text-yellow-600 font-semibold">Checkout</span>
+        <span className="text-white font-semibold">Page</span>
+      </h1>
+      <h1 className="text-xl text-white px-8 font-semibold italic">Finalize purchase and payment</h1>
+
+      <div className='min-h-screen p-10 flex items-center justify-center bg-gray-0'>
+        <div className='max-w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto'>
+          <div className='flex flex-col md:flex-row gap-5 items-start justify-center'>
+            
+          <form onSubmit={handleSubmit} className='flex flex-col gap-5 bg-gray-500 p-8 mb-4 rounded-lg w-full md:w-3/4 lg:w-1/2'>
+            <div className='flex flex-col gap-5 justify-center'> {/* Changed 'just' to 'justify-center' */}
+              <div className="flex justify-center">
+                <h1 className="text-4xl">
+                  <span className="text-yellow-600 font-semibold">Purchase</span>
+                  <span className="text-white font-semibold">Details</span>
+                </h1>
               </div>
-              <div className='flex gap-3 items-center'>
-                <label htmlFor='lastname' className=''>Last_Name:</label>
-                <input type='text' placeholder='Enter your last name' className='border p-2 rounded-lg ' id='lastname' name='lastname' 
-                onChange={(e) => setLName(e.target.value)}
-                // value={lName}
-                />
+              <div className='flex gap-5 items-center'>
+                <label htmlFor='firstname' className='text-lg'>First Name:</label>
+                <input type='text' placeholder='Enter your first name' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='firstname' name='firstname' 
+                  value={fName} onChange={(e) => setFName(e.target.value)} />
               </div>
-              <div className='flex gap-3 items-center'>
-                <label htmlFor='nic' className=''>NIC:</label>
-                <input type='text' placeholder='Enter your NIC' className='border p-2 rounded-lg' id='nic' name='nic' 
-                onChange={(e) => setNIC(e.target.value)}
-                // value={nic}
-                />
+              <div className='flex gap-5 items-center'>
+                <label htmlFor='lastname' className='text-lg'>Last Name:</label>
+                <input type='text' placeholder='Enter your last name' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='lastname' name='lastname' 
+                  value={lName} onChange={(e) => setLName(e.target.value)} />
               </div>
-              <div className='flex gap-3 items-center'>
-                <label htmlFor='phone' className=''>Phone:</label>
-                <input type='tel' placeholder='Enter your phone number' className='border p-2 rounded-lg' id='phone' name='phone' 
-                onChange={(e) => setPhone(e.target.value)}
-                // value={phone}
-                />
+              <div className='flex gap-5 items-center'>
+                <label htmlFor='nic' className='text-lg'>NIC:</label>
+                <input type='text' placeholder='Enter your NIC' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='nic' name='nic' 
+                  value={nic} onChange={(e) => setNIC(e.target.value)} />
               </div>
-              <div className='flex gap-3 items-center'>
-                <label htmlFor='email' className=''>Email:</label>
-                <input type='email' placeholder='Enter your email address' className='border p-2 rounded-lg' id='email' name='email' 
-                onChange={(e) => setEmail(e.target.value)}
-                // value={email}
-                />
+              <div className='flex gap-5 items-center'>
+                <label htmlFor='phone' className='text-lg'>Phone:</label>
+                <input type='tel' placeholder='Enter your phone number' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='phone' name='phone' 
+                  value={phone} onChange={(e) => setPhone(e.target.value)} />
+              </div>
+              <div className='flex gap-5 items-center'>
+                <label htmlFor='email' className='text-lg'>Email:</label>
+                <input type='email' placeholder='Enter your email address' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='email' name='email' 
+                  value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <div className="flex justify-center">
+                <button type="submit" className="btn btn-success bg-yellow-600 text-white py-1 px-4 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 text-lg">
+                  Submit
+                </button>
               </div>
             </div>
-            <button type="submit" className="btn btn-success bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Submit</button>
           </form>
 
-          <form className='bg-blue-100 p-5 rounded-lg w-full md:w-1/2'>
-            <h1 className='text-2xl text-center font-semibold my-0 p-0 mb-0'>Order Summary</h1>
+          <form className='bg-gray-500 p-8 rounded-lg w-full md:w-3/4 lg:w-2/3'>
+            <div className="flex justify-center mb-4">
+              <h1 className="text-4xl">
+                <span className="text-yellow-600 font-semibold">Order</span>
+                <span className="text-white font-semibold">Summary</span>
+              </h1>
+            </div>
             <table className='w-full text-left'>
               <thead>
                 <tr>
-                  <th className=''>Subtotal</th>              
+                  <th className='pr-4'>Subtotal</th>
+                  <td className='font-semibold'>50,000</td>            
                 </tr>
                 <tr>
-                  <th className=''>Service_charge</th>             
+                  <th className='pr-4'>Service Charge</th> 
+                  <td className='font-semibold'>5,000</td>            
                 </tr>
                 <tr>
-                  <th className=''>Discount</th>              
+                  <th className='pr-4'>Discount</th>
+                  <td className='font-semibold'>500</td>              
                 </tr>
                 <tr>
-                  <th className=''>Tax</th>              
+                  <th className='pr-4'>Tax</th>
+                  <td className='font-semibold'>50</td>              
                 </tr>
-                <hr className="flex my-2 border-gray-400 w-full"></hr>
                 <tr>
-                  <th className=''>Total</th>
-             
+                  <td colSpan="2"><hr className="my-2 border-gray-400"></hr></td>
+                </tr>
+                <tr>
+                  <th className='pr-4'>Total</th>
+                  <td className='font-semibold'>54,550</td>
                 </tr>
               </thead>  
             </table>
-            <div className='flex gap-4 my-2'>
-            {/* <button type="submit" className="btn btn-success bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Place Order</button>
-            <button type="submit" className="btn btn-success bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Back to Home</button> */}
-              {/* <a
-                href="http://localhost:5173/payment"
-                className='bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:ring focus:border-blue-300'
-              >
-                Place order
-              </a>
-              <a
-                href="http://localhost:5173"
-                className='bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300'
-              >
-                Back to shopping
-              </a> */}
-            </div>
+            <div className='flex gap-4 my-4'></div>
           </form>
         </div>
       </div>
     </div>
-  );
-};
+  </div>
+);
+}
