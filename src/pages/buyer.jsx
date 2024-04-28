@@ -24,6 +24,7 @@ const Items = () => {
     axios.delete(`http://localhost:3003/checkout/deleteCheckout/${id}`)
       .then(res => {
         console.log(res);
+        alert("Success");
         window.location.reload();
       })
       .catch(err => console.log(err));
@@ -125,11 +126,11 @@ const Items = () => {
               <div className='flex justify-center gap-4 my-2 text-center'>
                 <a
                   href="http://localhost:5173"
-                  className='btn btn-primary bg-yellow-600 text-white py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs'
+                  className='btn btn-primary bg-yellow-600 text-black font-semibold py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs'
                 >
                   Back to Home
                 </a>
-                <button onClick={handleDownload} className="btn btn-primary bg-yellow-600 text-white py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs">
+                <button onClick={handleDownload} className="btn btn-primary bg-yellow-600 text-black font-semibold py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs">
                   Download Report
                 </button>
               </div>

@@ -8,8 +8,27 @@ function ItemsPage() {
       <h1 className="text-4xl p-4">
         <span className="text-yellow-600 font-semibold">Spare</span>
         <span className="text-white font-semibold">Parts</span>
+          <a
+            href="http://localhost:5173/cart"
+            className='btn btn-primary bg-yellow-600 text-black font-semibold py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs'
+          >
+          Cart
+        </a>
+        <a
+            href="http://localhost:5173/checkout"
+            className='btn btn-primary bg-yellow-600 text-black font-semibold py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs'
+          >
+          Checkout
+        </a>
+        <a
+            href="http://localhost:5173/payment"
+            className='btn btn-primary bg-yellow-600 text-black font-semibold py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs'
+          >
+          Payment
+        </a>
       </h1>
       <h1 className="text-xl text-white px-8 font-semibold italic">Components available for purchase</h1>
+      
 
       <div className='flex justify-center items-center max-w-6xl mx-auto p-5'>
       <form className='bg-gray-700 p-3 rounded-lg flex items-center'>

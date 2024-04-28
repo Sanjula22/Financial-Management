@@ -84,13 +84,13 @@ const Update = () => {
               <div className='flex justify-center gap-4 my-2'>
                 <button
                     type="submit"
-                    className="btn btn-primary bg-yellow-600 text-white py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs"
+                    className="btn btn-primary bg-yellow-600 text-black font-semibold py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs"
                 >
                     Save Changes
                 </button>
                 <Link
                     to="/buyer"
-                    className="btn btn-outline-primary bg-yellow-600 text-white py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs text-center"
+                    className="btn btn-outline-primary bg-yellow-600 text-bblack font-semibold py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full max-w-xs text-center"
                 >
                     Cancel
                 </Link>

@@ -76,8 +76,8 @@ const Update = () => {
               </div> */}
             </div>
             <div className="flex justify-between">
-              <button type="submit" className="btn btn-primary me-2 bg-yellow-600 text-white py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full text-center">Save Changes</button>
-              <Link to="/invoice" className="btn btn-outline-primary bg-yellow-600 text-white py-1 px-3 rounded-md hover:bg-blyellowue-700 focus:outline-none focus:ring focus:border-blue-300 w-full text-center" >Cancel</Link>
+              <button type="submit" className="btn btn-primary me-2 bg-yellow-600 text-black font-semibold py-1 px-3 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 w-full text-center">Save Changes</button>
+              <Link to="/invoice" className="btn btn-outline-primary bg-yellow-600 text-black font-semibold py-1 px-3 rounded-md hover:bg-blyellowue-700 focus:outline-none focus:ring focus:border-blue-300 w-full text-center" >Cancel</Link>
           </div>
 
 

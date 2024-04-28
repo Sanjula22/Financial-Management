@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Checkout() {
   const [fName, setFName] = useState('');
@@ -8,11 +8,14 @@ export default function Checkout() {
   const [nic, setNIC] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios.post("http://localhost:3003/checkout/createCheckout", { fName, lName, nic, phone, email })
+    navigate('/buyer')
       .then(result => console.log(result))
       .catch(err => console.log(err));
   };
@@ -39,31 +42,31 @@ export default function Checkout() {
               </div>
               <div className='flex gap-5 items-center'>
                 <label htmlFor='firstname' className='text-lg'>First Name:</label>
-                <input type='text' placeholder='Enter your first name' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='firstname' name='firstname' 
+                <input required type='text' placeholder='Enter your first name' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='firstname' name='firstname' 
                   value={fName} onChange={(e) => setFName(e.target.value)} />
               </div>
               <div className='flex gap-5 items-center'>
                 <label htmlFor='lastname' className='text-lg'>Last Name:</label>
-                <input type='text' placeholder='Enter your last name' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='lastname' name='lastname' 
+                <input required type='text' placeholder='Enter your last name' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='lastname' name='lastname' 
                   value={lName} onChange={(e) => setLName(e.target.value)} />
               </div>
               <div className='flex gap-5 items-center'>
                 <label htmlFor='nic' className='text-lg'>NIC:</label>
-                <input type='text' placeholder='Enter your NIC' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='nic' name='nic' 
+                <input required type='text' placeholder='Enter your NIC' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='nic' name='nic' 
                   value={nic} onChange={(e) => setNIC(e.target.value)} />
               </div>
               <div className='flex gap-5 items-center'>
                 <label htmlFor='phone' className='text-lg'>Phone:</label>
-                <input type='tel' placeholder='Enter your phone number' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='phone' name='phone' 
+                <input required type='phoneclie' placeholder='Enter your phone number' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='phone' name='phone' 
                   value={phone} onChange={(e) => setPhone(e.target.value)} />
               </div>
               <div className='flex gap-5 items-center'>
                 <label htmlFor='email' className='text-lg'>Email:</label>
-                <input type='email' placeholder='Enter your email address' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='email' name='email' 
+                <input required type='email' placeholder='Enter your email address' className='border p-3 rounded-lg bg-gray-400 placeholder-black text-lg' id='email' name='email' 
                   value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="flex justify-center">
-                <button type="submit" className="btn btn-success bg-yellow-600 text-white py-1 px-4 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 text-lg">
+                <button type="submit" className="btn btn-success bg-yellow-600 text-black py-1 px-4 font-semibold rounded-md hover:bg-yellow-700 focus:outline-none focus:ring focus:border-blue-300 text-lg">
                   Submit
                 </button>
               </div>
